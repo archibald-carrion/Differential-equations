@@ -1,0 +1,71 @@
+\chapter{Ecuaciones de Primer Orden}
+\section{Separation of Variables Method (Variables Separables)}
+
+\section{Homogeneous Differential Equations Method}
+
+La ecuación homogénea se puede reducir a variables separables haciendo \( y(x)=u(x) \cdot x \), con lo cual \( x \frac{d u}{d x}=\phi(u)-u \)
+
+In the context of differential equations, the method described relates to solving a homogeneous differential equation by transforming it into a separable one. The function \( \phi(u) \) typically represents a function of the variable \( u \), which is introduced by the substitution \( y(x) = u(x) \cdot x \).
+The equation \( x \frac{d u}{d x} = \phi(u) - u \) implies that the original differential equation has been rewritten in terms of the new variable \( u \), and \( \phi(u) \) is a function that arises from the transformation process. This function \( \phi(u) \) is specific to the form of the original differential equation you started with.
+
+\section{Exact Differential Equations Method}
+
+
+\section{Casi-exacta, integrating factor (factor integrante)}
+
+
+\section{Linear First-Order Differential Equations Method}
+Una ecuación diferencial lineal de primer orden tiene la siguiente forma:
+$$y' + p(x)y = q(x)$$
+Con $p(x)$ y $q(x)$ continuas en un mismo intervalo $I = ]x_1, x_2[$.
+
+Si $q(x)=0$ entonces es una \textbf{ecuación diferencial lineal homogénea},  si $q(x)\neq0$ entonces es una \textbf{ecuación diferencial lineal no homogénea}
+
+\textbf{How to solve a linear first-order DE, como resolver una ED lineal de primer order}
+
+\begin{enumerate}[label=\roman*)]
+    \item Remember to write the linear equation in standard form (2).
+    \item Identify $P(x)$ from the standard form and then determine the integrating factor $e^{\int P(x)dx}$. Note: A constant is not needed when evaluating the indefinite integral $\int P(x)dx$
+    \item Calculate $y$ using the following formula:
+        $$y = \frac{1}{\mu(x)}\left[\int q(x)\mu(x)dx + C\right], \quad C \text{ constante}$$
+\end{enumerate}
+
+\section{Bernoulli equation}
+The Bernoulli equation is a type of differential equation that has the form:
+\[
+\frac{d y}{d x} + p(x) y = q(x) \cdot y^n
+\]
+where \( n \neq 0, 1 \)
+
+\textbf{Method to Reduce it to a Linear Equation}
+
+To solve this equation, we use a substitution method to convert it into a linear differential equation. Here's how it works:
+
+1. \textbf{Substitution:} 
+   We use the substitution $u = y^{1-n}$. This means that $y = u^{\frac{1}{1-n}}$.
+
+2. \textbf{Differentiation:} 
+   We differentiate $u = y^{1-n}$ with respect to $x$ to obtain:
+   $$\frac{du}{dx} = (1-n)y^{-n} \cdot \frac{dy}{dx}$$
+
+3. \textbf{Substitute into the Original Equation:} 
+   Replace $y$ and $\frac{dy}{dx}$ in the original Bernoulli equation with the expressions involving $u$ and $\frac{du}{dx}$:
+   $$\frac{y^n}{1-n} \cdot \frac{du}{dx} + p(x)y = q(x) \cdot y^n$$
+
+4. \textbf{Divide by} $y^n$: 
+   Simplify the equation by dividing through by $y^n$:
+   $$\frac{1}{1-n} \cdot \frac{du}{dx} + p(x)y^{1-n} = q(x)$$
+
+   Since $u = y^{1-n}$, substitute $u$ back in:
+   $$\frac{1}{1-n} \cdot \frac{du}{dx} + p(x)u = q(x)$$
+
+5. \textbf{Normalize:} 
+   Multiply through by $1-n$ to make the equation look standard for a linear differential equation:
+   $$\frac{du}{dx} + (1-n)p(x)u = (1-n)q(x)$$
+
+
+This is now a linear differential equation in terms of \( u \), which can be solved using standard methods for linear differential equations.
+
+\section{Riccati equation}
+
+\section{Isoclinas y campos direccionales}

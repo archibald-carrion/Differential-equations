@@ -1,0 +1,66 @@
+\chapter{Ecuaciones diferenciales lineales de orden superior}
+
+\section{Valores iniciales y valores fronteras}
+Let me clarify the difference between initial values and boundary values in differential equations.
+
+Initial values specify the value of the function (and possibly its derivatives) at a single point, typically at the beginning of the interval you're considering (often at $t=0$). For example, in a problem like:
+
+$dy/dt = 2y, y(0) = 1$
+
+Here, $y(0) = 1$ is the initial value - it tells us where the solution starts.
+
+Boundary values, on the other hand, specify values of the function at multiple points, typically at the endpoints of an interval. For example:
+
+$d^2y/dx^2 + y = 0, y(0) = 0, y(\pi) = 1$
+
+Here, we have two boundary values: one at $x=0$ and another at $x=π$. They constrain the solution at both ends of the interval [0,π].
+
+The key differences are:
+1. Initial value problems (IVPs) only specify conditions at one point, while boundary value problems (BVPs) specify conditions at multiple points
+2. IVPs typically model time-evolution problems where you care about how something develops from a starting state
+3. BVPs often arise in equilibrium or steady-state problems where you care about satisfying conditions at different locations
+
+Would you like me to show you some more examples to illustrate these differences?
+
+\section{ecuaciones caracteristicas}
+Only can solve homogenous linear diferencial equations
+
+
+
+\section{order reduction method}
+Solve linear ED which are homogenous and non-honogenous 
+
+
+\section{Metodo coeficientes indeterminados}
+
+
+\section{Metodo de anuladores}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|c|c|}
+\hline
+$f(x)$ & Anulador \\
+\hline
+$P_n(x) = a_nx^n + a_{n-1}x^{n-1} + ... + a_1x + a_0$ & $D^{n+1}$ \\
+\hline
+$Ae^{\alpha x}$ & $D - \alpha$ \\
+\hline
+$A\cos(\omega x) + B\sin(\omega x)$ & $D^2 + \omega^2$ \\
+\hline
+$P_n(x)e^{\alpha x}$ & $(D - \alpha)^{n+1}$ \\
+\hline
+$P_n(x)\cos(\omega x) + Q_m(x)\sin(\omega x)$ & $(D^2 + \omega^2)^{N+1}, N = \max\{m, n\}$ \\
+\hline
+$e^{\alpha x}[A\cos(\omega x) + B\sin(\omega x)]$ & $(D - \alpha)^2 + \omega^2$ \\
+\hline
+$e^{\alpha x}[P_n(x)\cos(\omega x) + Q_m(x)\sin(\omega x)]$ & $[(D - \alpha)^2 + \omega^2]^{N+1}, N = \max\{m, n\}$ \\
+\hline
+\end{tabular}
+\caption{Differential Operators and Their Annihilators}
+\label{table:diff_operators}
+\end{table}
+
+
+\section{Metodo variacion de parametros}
+Make use of the wronskian

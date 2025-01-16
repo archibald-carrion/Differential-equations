@@ -1,0 +1,27 @@
+\chapter{Appendix 2 - Integration methods}
+
+\section*{Integration by Partial Fractions}
+
+Integration by partial fractions is a technique used to integrate rational functions, which are ratios of polynomials. The basic idea is to decompose a complex rational function into simpler fractions that are easier to integrate.
+
+\subsection*{Steps for Integration by Partial Fractions}
+
+\begin{enumerate}
+    \item \textbf{Ensure Proper Fraction:} Make sure the degree of the numerator is less than the degree of the denominator. If not, perform polynomial long division first.
+    
+    \item \textbf{Factor the Denominator:} Factor the denominator of the rational function completely into linear and/or irreducible quadratic factors.
+    
+    \item \textbf{Set Up Partial Fractions:} Express the fraction as a sum of partial fractions. The form depends on the factors:
+    \begin{itemize}
+        \item For each linear factor $(ax + b)$, use a term $\frac{A}{ax+b}$
+        
+        \item For each repeated linear factor $(ax + b)^n$, use terms 
+        $\frac{A_1}{ax+b} + \frac{A_2}{(ax+b)^2} + \cdots + \frac{A_n}{(ax+b)^n}$
+        
+        \item For each irreducible quadratic factor $(ax^2 + bx + c)$, use a term $\frac{Ax+B}{ax^2+bx+c}$
+    \end{itemize}
+    
+    \item \textbf{Solve for Coefficients:} Multiply through by the common denominator to clear fractions, then equate the coefficients of corresponding powers of $x$ from both sides of the equation to solve for the unknown coefficients.
+    
+    \item \textbf{Integrate Each Term:} Once the original fraction is expressed as a sum of simpler fractions, integrate each term separately.
+\end{enumerate}

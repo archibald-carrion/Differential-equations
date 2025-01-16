@@ -1,0 +1,62 @@
+\documentclass[11pt,a4paper]{book}
+
+% Package imports for better appearance and utility
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english,french]{babel}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{enumitem}  % Add this in the preamble
+
+% Page layout settings
+\geometry{margin=1in}
+
+% Title page style
+\newcommand{\booktitle}{\Huge\textbf{\textcolor{blue!70!black}{Équations Différentielles}}}
+\newcommand{\booksubtitle}{\Large Differential Equations}
+\newcommand{\authorname}{\Large Archibald Carrion}
+\newcommand{\edition}{\normalsize \textit{First Edition}}
+\newcommand{\publishdate}{\normalsize \textit{\today}}
+
+\begin{document}
+
+% Title Page
+\begin{titlepage}
+    \begin{center}
+        \vspace*{1cm}
+        \booktitle \\
+        \vspace{0.5cm}
+        \booksubtitle \\
+        \vspace{1.5cm}
+
+        \authorname \\
+        \vspace{0.5cm}
+
+        \edition \\
+        \vspace{0.5cm}
+
+        \publishdate \\
+        \vfill
+        \includegraphics[width=0.4\textwidth]{example-image} % Placeholder for a cover image
+        \vfill
+        \textit{Dedicated to all learners of mathematics.}
+    \end{center}
+\end{titlepage}
+
+% Table of Contents
+\tableofcontents
+\newpage
+
+% Include chapters
+\include{chapters/chapter1}
+\include{chapters/chapter2}
+
+% include appendix chapters
+% inclure chapitres annexe
+\include{chapters/appendix_1}
+\include{chapters/appendix_2}
+
+\end{document}
