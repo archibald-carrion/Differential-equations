@@ -1,0 +1,85 @@
+\chapter{Solving DE using power series}
+
+\section{Steps to Solve Differential Equations Using Power Series}
+
+\subsection{1. Assume a Power Series Solution}
+Assume that the solution $y(x)$ can be expressed as a power series centered at $x = x_0$:
+
+\[y(x) = \sum_{n=0}^{\infty} a_n(x-x_0)^n\]
+
+Here, $a_n$ are coefficients to be determined, and $x_0$ is typically the point about which the series is centered (often $x_0 = 0$).
+
+\subsection{2. Differentiate the Power Series}
+If the differential equation involves derivatives of $y(x)$, differentiate the power series term by term:
+
+\[y'(x) = \sum_{n=1}^{\infty} na_n(x-x_0)^{n-1}\]
+
+\[y''(x) = \sum_{n=2}^{\infty} n(n-1)a_n(x-x_0)^{n-2}\]
+
+Continue this process for higher-order derivatives as needed.
+
+\subsection{3. Substitute into the Differential Equation}
+Substitute the power series expressions for $y(x)$, $y'(x)$, etc., into the differential equation.
+
+
+\section{Classification of Points in Second-Order Linear Differential Equations}
+
+Consider the general form of a linear second-order differential equation:
+\[P(x)y'' + Q(x)y' + R(x)y = 0\]
+where $P(x)$, $Q(x)$, and $R(x)$ are functions of $x$.
+
+\subsection{Ordinary Points}
+A point $x = x_0$ is called an \textbf{ordinary point} of the differential equation if:
+\[P(x_0) \neq 0\]
+At an ordinary point:
+\begin{itemize}
+    \item The functions $p(x) = \frac{Q(x)}{P(x)}$ and $q(x) = \frac{R(x)}{P(x)}$ are both analytic at $x_0$
+    \item The equation can be written in standard form: $y'' + p(x)y' + q(x)y = 0$
+    \item Solutions can be found using regular power series: $y = \sum_{n=0}^{\infty} a_n(x-x_0)^n$
+\end{itemize}
+
+\subsection{Singular Points}
+A point $x = x_0$ is called a \textbf{singular point} if:
+\[P(x_0) = 0\]
+
+Singular points are further classified into two types:
+
+\subsubsection{Regular Singular Points}
+A singular point $x = x_0$ is \textbf{regular} if:
+\begin{itemize}
+    \item $(x-x_0)p(x)$ is analytic at $x = x_0$
+    \item $(x-x_0)^2q(x)$ is analytic at $x = x_0$
+\end{itemize}
+
+This means the limits exist:
+\[\lim_{x \to x_0} (x-x_0)p(x) \text{ and } \lim_{x \to x_0} (x-x_0)^2q(x)\]
+
+Solutions near regular singular points can be found using the Frobenius method:
+\[y = (x-x_0)^r\sum_{n=0}^{\infty} a_n(x-x_0)^n\]
+
+\subsubsection{Irregular Singular Points}
+A singular point $x = x_0$ is \textbf{irregular} if it is not regular, i.e., if either:
+\begin{itemize}
+    \item $(x-x_0)p(x)$ is not analytic at $x = x_0$, or
+    \item $(x-x_0)^2q(x)$ is not analytic at $x = x_0$
+\end{itemize}
+
+\subsection{Key Differences}
+\begin{enumerate}
+    \item \textbf{Solution Method}:
+        \begin{itemize}
+            \item Ordinary points: Regular power series solutions exist
+            \item Regular singular points: Frobenius series solutions exist
+            \item Irregular singular points: Neither method works directly
+        \end{itemize}
+    \item \textbf{Behavior of Solutions}:
+        \begin{itemize}
+            \item Ordinary points: Solutions are well-behaved and analytic
+            \item Singular points: Solutions may have branching or essential singularities
+        \end{itemize}
+    \item \textbf{Series Convergence}:
+        \begin{itemize}
+            \item Ordinary points: Power series converge in some neighborhood
+            \item Singular points: More complex convergence behavior
+        \end{itemize}
+\end{enumerate}
