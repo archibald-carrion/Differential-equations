@@ -83,3 +83,89 @@ A singular point $x = x_0$ is \textbf{irregular} if it is not regular, i.e., if 
             \item Singular points: More complex convergence behavior
         \end{itemize}
 \end{enumerate}
+
+\section{Difference using the power series and Frobenius method}
+\subsection{Difference in starting index}
+The difference in handling the starting index when using a normal power series and the Frobenius method is rooted in the nature of these two approaches and the types of points they are centered around.
+
+\subsubsection{Normal Power Series}
+
+\textbf{When to Use:}
+\begin{itemize}
+    \item The normal power series method is typically used when the differential equation has an ordinary point, where the functions involved are analytic and well-behaved.
+\end{itemize}
+
+\textbf{Series Expansion:}
+\begin{itemize}
+    \item Assume a solution of the form:
+    
+
+$$ y(x) = \sum_{n=0}^{\infty} a_n x^n $$
+
+
+\end{itemize}
+
+\textbf{Differentiation:}
+\begin{itemize}
+    \item When you differentiate this series:
+    
+
+$$ y'(x) = \sum_{n=1}^{\infty} n a_n x^{n-1} $$ 
+
+
+    
+
+$$ y''(x) = \sum_{n=2}^{\infty} n(n-1) a_n x^{n-2} $$ 
+
+
+\end{itemize}
+
+\textbf{Reason for Index Change:}
+\begin{itemize}
+    \item The starting index increases because differentiation reduces the power of $ x $ by one. As a result, the first few terms (often constants) disappear (e.g., the $ a_0 $ term vanishes in the first derivative).
+\end{itemize}
+
+
+\subsubsection{Frobenius Method}
+
+\textbf{When to Use:}
+\begin{itemize}
+    \item The Frobenius method is used when the differential equation has a regular singular point, where the functions might not be entirely analytic, but the equation can still be solved using a modified series approach.
+\end{itemize}
+
+\textbf{Series Expansion:}
+\begin{itemize}
+    \item Assume a solution of the form:
+    
+
+\[
+    y(x) = \sum_{n=0}^{\infty} a_n x^{n+s}
+    \]
+
+
+    Here \( s \) is a number determined by solving the indicial equation, which arises from substituting the series into the differential equation.
+\end{itemize}
+
+\textbf{Differentiation:}
+\begin{itemize}
+    \item When you differentiate this series:
+    
+
+\[
+    y'(x) = \sum_{n=0}^{\infty} (n+s) a_n x^{n+s-1}
+    \]
+
+
+    
+
+\[
+    y''(x) = \sum_{n=0}^{\infty} (n+s)(n+s-1) a_n x^{n+s-2}
+    \]
+
+
+\end{itemize}
+
+\textbf{Reason for No Index Change:}
+\begin{itemize}
+    \item The starting index doesn't change because the exponent \( n+s \) allows for non-integer powers and shifts in the series. The indicial equation ensures that the series accommodates the nature of the singularity, which maintains the index starting point.
+\end{itemize}
