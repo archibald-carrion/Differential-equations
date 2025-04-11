@@ -1,0 +1,215 @@
+
+\documentclass[10pt]{article}
+
+\usepackage[usletter, margin=0.5in]{geometry}
+\usepackage{multicol}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+\usepackage{fontawesome}
+\usepackage{titlesec}
+
+\setlength{\columnsep}{0.5cm}
+\setlength{\columnseprule}{0.5pt}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+\titleformat{\section}
+  {\normalfont\large\bfseries}
+  {}
+  {0em}
+  {}[\titlerule]
+
+\titleformat{\subsection}
+  {\normalfont\bfseries}
+  {}
+  {0em}
+  {}
+
+\newcommand{\cmd}[1]{\texttt{#1}}
+\newcommand{\dockitem}[2]{\item \textbf{\cmd{#1}} - #2}
+
+\begin{document}
+
+\begin{center}
+\huge{\textbf{{Docker Cheat Sheet}}}
+\end{center}
+
+\begin{multicols}{2}
+
+\section{Installation \& Setup}
+\begin{itemize}[leftmargin=*,noitemsep]
+\dockitem{docker --version}{Display Docker version}
+\dockitem{docker info}{Display system-wide information}
+\dockitem{docker login}{Log in to a Docker registry}
+\dockitem{docker logout}{Log out from a Docker registry}
+\end{itemize}
+
+\section{Images}
+\begin{itemize}[leftmargin=*,noitemsep]
+\dockitem{docker images}{List all local images}
+\dockitem{docker pull \textit{image[:tag]}}{Download an image}
+\dockitem{docker push \textit{image[:tag]}}{Upload an image to registry}
+\dockitem{docker build -t \textit{name:tag} .}{Build image from Dockerfile}
+\dockitem{docker rmi \textit{image-id}}{Remove an image}
+\dockitem{docker history \textit{image}}{Show image history}
+\dockitem{docker tag \textit{source target}}{Create a tag for an image}
+\dockitem{docker save \textit{image} > file.tar}{Save image to archive}
+\dockitem{docker load < file.tar}{Load image from archive}
+\dockitem{docker search \textit{term}}{Search Docker Hub for images}
+\end{itemize}
+
+\section{Containers}
+\begin{itemize}[leftmargin=*,noitemsep]
+\dockitem{docker ps}{List running containers}
+\dockitem{docker ps -a}{List all containers}
+\dockitem{docker run \textit{image}}{Create and start container}
+\dockitem{docker run -d \textit{image}}{Run container in background}
+\dockitem{docker run -p \textit{host:container image}}{Port mapping}
+\dockitem{docker run -v \textit{host:container image}}{Volume mapping}
+\dockitem{docker run -e KEY=VALUE \textit{image}}{Set environment variables}
+\dockitem{docker run --name \textit{name image}}{Assign container name}
+\dockitem{docker run --rm \textit{image}}{Remove container when it exits}
+\dockitem{docker run -it \textit{image sh}}{Interactive shell}
+\dockitem{docker start \textit{container}}{Start a stopped container}
+\dockitem{docker stop \textit{container}}{Stop a container}
+\dockitem{docker restart \textit{container}}{Restart a container}
+\dockitem{docker rm \textit{container}}{Remove a container}
+\dockitem{docker rm -f \textit{container}}{Force remove running container}
+\dockitem{docker exec -it \textit{container command}}{Run command in container}
+\dockitem{docker logs \textit{container}}{Fetch container logs}
+\dockitem{docker logs -f \textit{container}}{Follow container logs}
+\dockitem{docker inspect \textit{container}}{View container details}
+\dockitem{docker stats}{Display live container resource usage}
+\dockitem{docker top \textit{container}}{Display running processes}
+\dockitem{docker cp \textit{container:src dest}}{Copy from container to host}
+\dockitem{docker cp \textit{src container:dest}}{Copy from host to container}
+\dockitem{docker rename \textit{old new}}{Rename a container}
+\dockitem{docker update \textit{options container}}{Update container config}
+\end{itemize}
+
+\section{Docker Compose}
+\begin{itemize}[leftmargin=*,noitemsep]
+\dockitem{docker-compose --version}{Display Compose version}
+\dockitem{docker-compose up}{Create and start containers}
+\dockitem{docker-compose up -d}{Start in background}
+\dockitem{docker-compose down}{Stop and remove containers}
+\dockitem{docker-compose ps}{List containers}
+\dockitem{docker-compose logs}{View output from containers}
+\dockitem{docker-compose build}{Build/rebuild services}
+\dockitem{docker-compose pull}{Pull service images}
+\dockitem{docker-compose restart}{Restart services}
+\dockitem{docker-compose stop}{Stop services}
+\dockitem{docker-compose start}{Start services}
+\dockitem{docker-compose exec \textit{service command}}{Run command in service}
+\dockitem{docker-compose run \textit{service command}}{Run one-off command}
+\dockitem{docker-compose config}{Validate and view config}
+\end{itemize}
+
+\section{Volumes}
+\begin{itemize}[leftmargin=*,noitemsep]
+\dockitem{docker volume ls}{List volumes}
+\dockitem{docker volume create \textit{name}}{Create a volume}
+\dockitem{docker volume inspect \textit{volume}}{Display volume details}
+\dockitem{docker volume rm \textit{volume}}{Remove a volume}
+\dockitem{docker volume prune}{Remove unused volumes}
+\end{itemize}
+
+\section{Networks}
+\begin{itemize}[leftmargin=*,noitemsep]
+\dockitem{docker network ls}{List networks}
+\dockitem{docker network create \textit{network}}{Create a network}
+\dockitem{docker network inspect \textit{network}}{Display network details}
+\dockitem{docker network connect \textit{network container}}{Connect container to network}
+\dockitem{docker network disconnect \textit{network container}}{Disconnect container}
+\dockitem{docker network rm \textit{network}}{Remove a network}
+\dockitem{docker network prune}{Remove unused networks}
+\end{itemize}
+
+\section{System \& Maintenance}
+\begin{itemize}[leftmargin=*,noitemsep]
+\dockitem{docker system df}{Show Docker disk usage}
+\dockitem{docker system prune}{Remove unused data}
+\dockitem{docker system prune -a}{Remove unused data + images}
+\dockitem{docker events}{Get real-time events}
+\dockitem{docker wait \textit{container}}{Block until container stops}
+\dockitem{docker version}{Show Docker version info}
+\end{itemize}
+
+\section{Dockerfile Commands}
+\begin{itemize}[leftmargin=*,noitemsep]
+\dockitem{FROM \textit{image[:tag]}}{Base image for build}
+\dockitem{MAINTAINER \textit{name}}{Set author of image}
+\dockitem{RUN \textit{command}}{Execute command in container}
+\dockitem{CMD ["executable","param1","param2"]}{Default command to run}
+\dockitem{EXPOSE \textit{port}}{Expose port from container}
+\dockitem{ENV \textit{key value}}{Set environment variable}
+\dockitem{ADD \textit{src dest}}{Copy files/dirs to container with special features}
+\dockitem{COPY \textit{src dest}}{Copy files/dirs to container}
+\dockitem{ENTRYPOINT ["executable","param1"]}{Configure container start command}
+\dockitem{VOLUME ["/data"]}{Create mount point for external volumes}
+\dockitem{USER \textit{username}}{Set user for RUN, CMD, ENTRYPOINT}
+\dockitem{WORKDIR \textit{/path}}{Set working directory}
+\dockitem{ARG \textit{name[=default]}}{Define build-time variable}
+\dockitem{ONBUILD \textit{instruction}}{Add trigger for image inheritance}
+\dockitem{HEALTHCHECK \textit{options} CMD \textit{command}}{Container health check}
+\dockitem{SHELL ["executable","params"]}{Override default shell}
+\end{itemize}
+
+\section{Common Options}
+\begin{itemize}[leftmargin=*,noitemsep]
+\dockitem{-d, --detach}{Run in background}
+\dockitem{-e, --env}{Set environment variables}
+\dockitem{-p, --publish}{Publish container ports}
+\dockitem{-v, --volume}{Bind mount a volume}
+\dockitem{--name}{Assign name to container}
+\dockitem{--network}{Connect to a network}
+\dockitem{--rm}{Remove container when it exits}
+\dockitem{-it}{Interactive with terminal}
+\dockitem{--restart}{Restart policy (no,always,on-failure,unless-stopped)}
+\dockitem{--privileged}{Extended privileges}
+\end{itemize}
+
+\section{Docker Hub \& Registry}
+\begin{itemize}[leftmargin=*,noitemsep]
+\dockitem{docker login}{Log in to registry}
+\dockitem{docker logout}{Log out from registry}
+\dockitem{docker search \textit{term}}{Search Docker Hub}
+\dockitem{docker pull \textit{image[:tag]}}{Pull image from registry}
+\dockitem{docker push \textit{image[:tag]}}{Push image to registry}
+\end{itemize}
+
+\section{Docker Context}
+\begin{itemize}[leftmargin=*,noitemsep]
+\dockitem{docker context ls}{List available contexts}
+\dockitem{docker context use \textit{name}}{Set current context}
+\dockitem{docker context create \textit{name}}{Create a new context}
+\dockitem{docker context rm \textit{name}}{Remove a context}
+\end{itemize}
+
+\vfill
+\columnbreak
+
+\section{Best Practices}
+\begin{itemize}[leftmargin=*,noitemsep]
+\item Use official images as base
+\item Minimize layers in Dockerfiles
+\item Use .dockerignore to exclude files
+\item Remove unnecessary dependencies
+\item Use multi-stage builds
+\item Don't run processes as root
+\item Use environment variables for configuration
+\item One service per container
+\item Leverage build cache effectively
+\item Label your images properly
+\item Use volumes for persistent data
+\end{itemize}
+
+\end{multicols}
+\end{document}
